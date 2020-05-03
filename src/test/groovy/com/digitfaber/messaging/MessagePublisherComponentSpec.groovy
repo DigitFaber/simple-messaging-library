@@ -89,7 +89,7 @@ class MessagePublisherComponentSpec extends Specification {
         }
     }
 
-    def "should not deliver message to the annotated method in unregistered TestSubscriber using synchronous call"() {
+    def "should not deliver message to the annotated method in deregistered TestSubscriber using synchronous call"() {
         given:
         int timeoutSeconds = 3
         def conditions = new PollingConditions(timeout: timeoutSeconds)
@@ -103,7 +103,7 @@ class MessagePublisherComponentSpec extends Specification {
         messagePublisher.registerSubscriber(testSubscriber)
 
         when:
-        messagePublisher.unregisterSubscriber(testSubscriber)
+        messagePublisher.deregisterSubscriber(testSubscriber)
         
         and:
         messagePublisher.publish(MESSAGE_NAME, publishedMessage)
@@ -114,7 +114,7 @@ class MessagePublisherComponentSpec extends Specification {
         }
     }
 
-    def "should not deliver message to the annotated method in unregistered TestSubscriber using asynchronous call"() {
+    def "should not deliver message to the annotated method in deregistered TestSubscriber using asynchronous call"() {
         given:
         int timeoutSeconds = 3
         def conditions = new PollingConditions(timeout: timeoutSeconds)
@@ -128,7 +128,7 @@ class MessagePublisherComponentSpec extends Specification {
         messagePublisher.registerSubscriber(testSubscriber)
 
         when:
-        messagePublisher.unregisterSubscriber(testSubscriber)
+        messagePublisher.deregisterSubscriber(testSubscriber)
 
         and:
         messagePublisher.publish(MESSAGE_NAME, publishedMessage)
