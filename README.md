@@ -20,6 +20,28 @@ annotated with `@MessageListener` annotation to listen for it.
 
 ## Quickstart
 
+##### Step 0: Build a library and add it to your project
+
+For now library isn't published to any maven repo, so you have to build it manually and add to your local maven repo.
+
+Clone the repository: 
+```
+git clone https://github.com/DigitFaber/simple-messaging-library.git
+```
+Go to the project directory (`cd simple-messaging-library`) and build the library:
+```
+mvnw install
+```
+
+Add dependency to your maven project:
+```
+<dependency>
+    <groupId>com.digitfaber</groupId>
+    <artifactId>simple-messaging-library</artifactId>
+    <version>${simple-messaging-library.version}</version>
+</dependency>
+```
+
 ##### Step 1: Prepare message publisher
 
 ###### Spring
